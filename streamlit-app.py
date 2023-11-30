@@ -22,7 +22,7 @@ warnings.filterwarnings("ignore")
 
 
 # default demo video 
-DEMO_VIDEO = 'sample-running-good-2.mp4'
+DEMO_VIDEO = 'good-video-8.mp4'
 
 
 #mediapipe inbuilt solutions 
