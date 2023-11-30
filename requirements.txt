@@ -1,0 +1,11 @@
+opencv-python-headless
+mediapipe
+streamlit
+numpy
+sounddevice
+pandas
+imblearn
+scikit-learn==1.2.2
+streamlit-webrtc
+aiortc
+av
