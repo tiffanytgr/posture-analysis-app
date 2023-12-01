@@ -25,7 +25,7 @@ warnings.filterwarnings("ignore")
 
 
 # default demo video 
-DEMO_VIDEO = 'good-video-8.mp4'
+DEMO_VIDEO = 'good-video-10.mp4'
 
 
 #mediapipe inbuilt solutions 
@@ -114,7 +114,7 @@ def main():
     
     count=0
 
-    model_path = 'finalized_model1.sav'
+    model_path = 'finalized_model.sav'
     model_full_path = model_path
     # model_full_path = os.path.join(os.getcwd(), model_path)
     print(model_full_path)
