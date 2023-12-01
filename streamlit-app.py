@@ -25,7 +25,7 @@ warnings.filterwarnings("ignore")
 
 
 # default demo video 
-DEMO_VIDEO = 'good-video-10.mp4'
+DEMO_VIDEO = 'woman-running.mp4'
 
 
 #mediapipe inbuilt solutions 
