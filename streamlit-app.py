@@ -16,6 +16,9 @@ import pickle
 import sounddevice as sd
 import pandas as pd
 import warnings
+
+import sklearn.metrics
+from streamlit_webrtc import webrtc_streamer
 warnings.filterwarnings("ignore")
 
 
@@ -59,8 +62,10 @@ def main():
     #creating a button for webcam
     use_webcam = st.sidebar.button('Use Webcam')
     #creating a slider for detection confidence 
-    detection_confidence = st.sidebar.slider('Min Detection Confidence', min_value =0.0,max_value = 1.0,value = 0.5)
+    # detection_confidence = st.sidebar.slider('Min Detection Confidence', min_value =0.0,max_value = 1.0,value = 0.5)
     
+    url = 'https://github.com/tiffanytgr/posture-analysis-app/tree/main'
+    st.sidebar.markdown(f'''<a href={url}><button style="background-color:Grey;">Link to Github Code</button></a>''',unsafe_allow_html=True)
     #model selection 
     # model_selection = st.sidebar.selectbox('Model Selection',options=[0,1,2])
     # st.markdown(' ## Output')
@@ -76,7 +81,8 @@ def main():
     if not video_file_buffer:
 
         if use_webcam:
-            vid = cv2.VideoCapture(0)
+            # vid = cv2.VideoCapture(0)
+            webrtc_streamer(key="example")
         else:
             vid = cv2.VideoCapture(DEMO_VIDEO)
             tfflie.name = DEMO_VIDEO
@@ -99,8 +105,8 @@ def main():
     pose = mp_pose.Pose()
     class_name='Good'
 
-    st.sidebar.text('Input Video')
-    st.sidebar.video(tfflie.name)
+    # st.sidebar.text('Input Video')
+    # st.sidebar.video(tfflie.name)
 
     drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 
@@ -108,15 +114,16 @@ def main():
     
     count=0
 
-    model_path = 'finalized_model.sav'
-    model_full_path = os.path.join(os.getcwd(), model_path)
+    model_path = 'finalized_model1.sav'
+    model_full_path = model_path
+    # model_full_path = os.path.join(os.getcwd(), model_path)
     print(model_full_path)
 
     with open(model_full_path, 'rb') as f:
         clf = pickle.load(f)
         count = 0
   
-    with mp_holistic.Holistic(min_detection_confidence=detection_confidence) as holistic:   
+    with mp_holistic.Holistic(min_detection_confidence=0.5) as holistic:   
         while vid.isOpened():
 
             ret, frame = vid.read()
@@ -178,7 +185,7 @@ def main():
                 neck_inclination = "Neck Inclination (Ear-Shoulder Angle):" + str(round(neck_inclination,2))
                 
                 # font
-                font = ImageFont.truetype(font = "C:/Windows/Fonts/Arial.ttf", size = 30)
+                font = ImageFont.truetype(font = "Arial Unicode.ttf", size = 30)
                 
                 # draw text
                 draw.text((20,0), torso_angle, font = font)
@@ -261,7 +268,7 @@ def main():
                 else:
                     print_ans = "Good Posture"
 
-                font = ImageFont.truetype("C:/Windows/Fonts/Arial.ttf", 50)
+                font = ImageFont.truetype("Arial Unicode.ttf", 50)
                 bbox = draw.textbbox((20,80), print_ans, font = font)
                 draw.rectangle(bbox, fill = 'black')
                 draw.text((20,80), print_ans, font = font, fill = 'white')
