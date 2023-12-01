@@ -23,7 +23,6 @@ warnings.filterwarnings("ignore")
 
 
 
-
 # default demo video 
 DEMO_VIDEO = 'good-video-9.mp4'
 
