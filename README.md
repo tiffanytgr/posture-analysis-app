@@ -26,15 +26,15 @@ This project aims to empower individuals to improve their running / walking post
 
 ## Project Workflow:
 
- <img src="project-workflow.png" style="height:100px" ><br>
+ <img src="images/project-workflow.png" style="height:100px" ><br>
 
  Mediapipe Landmark Poses: <br>
-  <img src="mediapipe-points.png" style="height:300px" >
+  <img src="images/mediapipe-points.png" style="height:300px" >
 
 ## Conclusion:
-
+#### Link to Streamlit app repo: [Click Here](https://github.com/tiffanytgr/posture-analysis-app) 
 #### Example output of app deployed on streamlit:<br>
-![](https://github.com/posture-analysis-app/streamlit-app-demo.gif)
+[](https://github.com/tiffanytgr/posture-analysis/blob/2f804490dd83eda3d4b4ca8ab3b11fe54f4fb9e7/images/streamlit-app-demo.gif)
 
 ### Features:
 - Empowers users to check if posture is good or bad based on the trained ML model, using the features like angles between body landmarks

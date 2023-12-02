@@ -24,7 +24,7 @@ warnings.filterwarnings("ignore")
 
 
 # default demo video 
-DEMO_VIDEO = 'good-video-9.mp4'
+DEMO_VIDEO = 'images/good-video-9.mp4'
 
 
 #mediapipe inbuilt solutions 
@@ -95,7 +95,7 @@ def main():
     fps = int(vid.get(cv2.CAP_PROP_FPS))
     #codec = cv2.VideoWriter_fourcc(*FLAGS.output_format)
     codec = cv2.VideoWriter_fourcc('V','P','0','9')
-    out = cv2.VideoWriter('output1.webm', codec, fps, (width, height))
+    out = cv2.VideoWriter('images/output1.webm', codec, fps, (width, height))
 
     mp_drawing = mp.solutions.drawing_utils
     mp_holistic = mp.solutions.holistic
@@ -131,7 +131,7 @@ def main():
             fps = int(vid.get(cv2.CAP_PROP_FPS))
             # codec = cv2.VideoWriter_fourcc(*FLAGS.output_format)
             codec = cv2.VideoWriter_fourcc('V','P','0','9')
-            out = cv2.VideoWriter('output1.webm', codec, fps, (width, height))
+            out = cv2.VideoWriter('images/output1.webm', codec, fps, (width, height))
             while vid.isOpened():
 
                 ret, frame = vid.read()
