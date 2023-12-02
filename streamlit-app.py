@@ -53,10 +53,10 @@ def calculate_angle(a,b,c):
 def main():
 
     #title 
-    st.title('Pose Classification App')
+    st.title('Posture Classification App')
 
     #sidebar title
-    st.sidebar.title('Pose Classification App')
+    st.sidebar.title('Posture Classification App')
 
     st.sidebar.subheader('Parameters')
     #creating a button for webcam
@@ -203,12 +203,12 @@ def main():
                     # font = ImageFont.truetype(font = "Arial Unicode.ttf", size = font_size)
                     
                     # draw text
-                    draw.text((20,0), torso_angle, font = font)
+                    draw.text((20,0), torso_angle, font = font, fill = 'black')
                    
                     temp=0
                     image = cv2.cvtColor(np.array(pil_im), cv2.COLOR_RGB2BGR)
                     temp=temp+font_size+7
-                    draw.text((20,temp), neck_inclination, font = font)
+                    draw.text((20,temp), neck_inclination, font = font, fill = 'black')
                     temp=temp+temp
                     image = cv2.cvtColor(np.array(pil_im), cv2.COLOR_RGB2BGR)
 
@@ -317,4 +317,4 @@ if __name__ == '__main__':
     main()
 
 
-# py -m streamlit run d:/capstone-running-form/streamlit-app.py
+# py -m streamlit run streamlit-app.py
