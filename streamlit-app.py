@@ -24,7 +24,7 @@ warnings.filterwarnings("ignore")
 
 
 # default demo video 
-DEMO_VIDEO = 'bad-1.mp4'
+DEMO_VIDEO = 'good-video-9.mp4'
 
 
 #mediapipe inbuilt solutions 
