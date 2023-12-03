@@ -198,8 +198,8 @@ def main():
                     neck_inclination = "Neck Inclination (Ear-Shoulder Angle):" + str(round(neck_inclination,2))
                     
                     # font
-                    font = ImageFont.truetype(font = "C:/Windows/Fonts/Arial.ttf", size = font_size)
-                    # font = ImageFont.truetype(font = "Arial Unicode.ttf", size = font_size)
+                    font = ImageFont.truetype(font = "Arial-Unicode.ttf", size = font_size)
+                    # font = ImageFont.truetype(font = "Arial-Unicode.ttf", size = font_size)
                     
                     # draw text
                     draw.text((20,0), torso_angle, font = font, fill = 'black')
@@ -292,7 +292,7 @@ def main():
                     else:
                         ss=int(font_size/10)+42+font_size
                  
-                    font = ImageFont.truetype("C:/Windows/Fonts/Arial.ttf", ss)
+                    font = ImageFont.truetype("Arial-Unicode.ttf", ss)
                     # font = ImageFont.truetype("Arial Unicode.ttf", ss)
                     bbox = draw.textbbox((20,temp), print_ans, font = font)
                     draw.rectangle(bbox, fill = 'black')
