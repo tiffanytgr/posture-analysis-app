@@ -34,7 +34,7 @@ This project aims to empower individuals to improve their running / walking post
 ## Conclusion:
 #### Link to Streamlit app repo: [Click Here](https://github.com/tiffanytgr/posture-analysis-app) 
 #### Example output of app deployed on streamlit:<br>
-[](https://github.com/tiffanytgr/posture-analysis-app/blob/3c55a6476442d78eddcc33534081cf0b37772c27/images/streamlit-app-demo.gif)
+![Demo](images/streamlit-app-demo.gif)
 
 ### Features:
 - Empowers users to check if posture is good or bad based on the trained ML model, using the features like angles between body landmarks
