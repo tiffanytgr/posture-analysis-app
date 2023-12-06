@@ -23,7 +23,6 @@ warnings.filterwarnings("ignore")
 
 
 
-
 # default demo video 
 DEMO_VIDEO = 'images/good-video-9.mp4'
 
@@ -61,12 +60,11 @@ def main():
     st.sidebar.subheader('Parameters')
     #creating a button for webcam
     use_webcam = st.sidebar.button('Use Webcam')
-    #creating a slider for detection confidence 
-    # detection_confidence = st.sidebar.slider('Min Detection Confidence', min_value =0.0,max_value = 1.0,value = 0.5)
+   
     
     url = 'https://github.com/tiffanytgr/posture-analysis-app/tree/main'
     st.sidebar.markdown(f'''<a href={url}><button style="background-color:Grey;">Link to Github Code</button></a>''',unsafe_allow_html=True)
-
+ 
     stframe = st.empty()
     
     #file uploader
@@ -80,7 +78,6 @@ def main():
 
         if use_webcam:
             vid = cv2.VideoCapture(0)
-
         else:
             vid = cv2.VideoCapture(DEMO_VIDEO)
             tfflie.name = DEMO_VIDEO
@@ -95,7 +92,7 @@ def main():
     fps = int(vid.get(cv2.CAP_PROP_FPS))
     #codec = cv2.VideoWriter_fourcc(*FLAGS.output_format)
     codec = cv2.VideoWriter_fourcc('V','P','0','9')
-    out = cv2.VideoWriter('output1.webm', codec, fps, (width, height))
+    out = cv2.VideoWriter('images/output1.webm', codec, fps, (width, height))
 
     mp_drawing = mp.solutions.drawing_utils
     mp_holistic = mp.solutions.holistic
@@ -134,7 +131,7 @@ def main():
             fps = int(vid.get(cv2.CAP_PROP_FPS))
             # codec = cv2.VideoWriter_fourcc(*FLAGS.output_format)
             codec = cv2.VideoWriter_fourcc('V','P','0','9')
-            out = cv2.VideoWriter('output1.webm', codec, fps, (width, height))
+            out = cv2.VideoWriter('images/output1.webm', codec, fps, (width, height))
             while vid.isOpened():
 
                 ret, frame = vid.read()
@@ -201,12 +198,12 @@ def main():
                     neck_inclination = "Neck Inclination (Ear-Shoulder Angle):" + str(round(neck_inclination,2))
                     
                     # font
-                    # font = ImageFont.truetype(font = "C:/Windows/Fonts/Arial.ttf", size = font_size)
                     font = ImageFont.truetype(font = "Arial-Unicode.ttf", size = font_size)
+                    # font = ImageFont.truetype(font = "Arial-Unicode.ttf", size = font_size)
                     
                     # draw text
                     draw.text((20,0), torso_angle, font = font, fill = 'black')
-                    # print(font_size)
+                   
                     temp=0
                     image = cv2.cvtColor(np.array(pil_im), cv2.COLOR_RGB2BGR)
                     temp=temp+font_size+7
@@ -294,9 +291,9 @@ def main():
                         ss=font_size+27
                     else:
                         ss=int(font_size/10)+42+font_size
-                    
-                    
+                 
                     font = ImageFont.truetype("Arial-Unicode.ttf", ss)
+                    # font = ImageFont.truetype("Arial Unicode.ttf", ss)
                     bbox = draw.textbbox((20,temp), print_ans, font = font)
                     draw.rectangle(bbox, fill = 'black')
                     draw.text((20,temp), print_ans, font = font, fill = 'white')
@@ -306,6 +303,7 @@ def main():
                     pass
 
                 stframe.image(image,use_column_width=True)
+
 
             vid.release()
             out.release()
